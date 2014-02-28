@@ -420,13 +420,7 @@ html
 <a name="a6-11"/>
 ### Doctypes
 
-To add a doctype simply use `!!!`, or `doctype` followed by an optional value:
-
-```jade
-!!!
-```
-
-or
+To add a doctype simply use `doctype` followed by an optional value:
 
 ```jade
 doctype
@@ -435,7 +429,7 @@ doctype
 Will output the _html 5_  doctype, however:
 
 ```jade
-!!! transitional
+doctype transitional
 ```
 
 Will output the _transitional_ doctype.

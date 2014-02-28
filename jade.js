@@ -1,13 +1,13 @@
-!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
 
-var nodes = require('./nodes');
-var filters = require('./filters');
-var doctypes = require('./doctypes');
-var runtime = require('./runtime');
-var utils = require('./utils');
-var parseJSExpression = require('character-parser').parseMax;
-var constantinople = require('constantinople');
+var nodes = _dereq_('./nodes');
+var filters = _dereq_('./filters');
+var doctypes = _dereq_('./doctypes');
+var runtime = _dereq_('./runtime');
+var utils = _dereq_('./utils');
+var parseJSExpression = _dereq_('character-parser').parseMax;
+var constantinople = _dereq_('constantinople');
 
 function isConstant(src) {
   return constantinople(src, {jade: runtime, 'jade_interp': undefined});
@@ -689,7 +689,7 @@ Compiler.prototype = {
   }
 };
 
-},{"./doctypes":2,"./filters":3,"./nodes":16,"./runtime":24,"./utils":26,"character-parser":33,"constantinople":34}],2:[function(require,module,exports){
+},{"./doctypes":2,"./filters":3,"./nodes":16,"./runtime":24,"./utils":26,"character-parser":33,"constantinople":34}],2:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = {
@@ -702,7 +702,7 @@ module.exports = {
   , 'basic': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">'
   , 'mobile': '<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">'
 };
-},{}],3:[function(require,module,exports){
+},{}],3:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = filter;
@@ -715,7 +715,7 @@ function filter(name, str, options) {
   return res;
 }
 
-},{}],4:[function(require,module,exports){
+},{}],4:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = [
@@ -739,7 +739,7 @@ module.exports = [
   , 'sub'
   , 'sup'
 ];
-},{}],5:[function(require,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 'use strict';
 
 /*!
@@ -752,36 +752,36 @@ module.exports = [
  * Module dependencies.
  */
 
-var Parser = require('./parser')
-  , Lexer = require('./lexer')
-  , Compiler = require('./compiler')
-  , runtime = require('./runtime')
-  , addWith = require('with')
-  , fs = require('fs');
+var Parser = _dereq_('./parser')
+  , Lexer = _dereq_('./lexer')
+  , Compiler = _dereq_('./compiler')
+  , runtime = _dereq_('./runtime')
+  , addWith = _dereq_('with')
+  , fs = _dereq_('fs');
 
 /**
  * Expose self closing tags.
  */
 
-exports.selfClosing = require('./self-closing');
+exports.selfClosing = _dereq_('./self-closing');
 
 /**
  * Default supported doctypes.
  */
 
-exports.doctypes = require('./doctypes');
+exports.doctypes = _dereq_('./doctypes');
 
 /**
  * Text filters.
  */
 
-exports.filters = require('./filters');
+exports.filters = _dereq_('./filters');
 
 /**
  * Utilities.
  */
 
-exports.utils = require('./utils');
+exports.utils = _dereq_('./utils');
 
 /**
  * Expose `Compiler`.
@@ -805,7 +805,7 @@ exports.Lexer = Lexer;
  * Nodes.
  */
 
-exports.nodes = require('./nodes');
+exports.nodes = _dereq_('./nodes');
 
 /**
  * Jade runtime helpers.
@@ -1066,12 +1066,12 @@ exports.compileFileClient = function(path, options){
 
 exports.__express = exports.renderFile;
 
-},{"./compiler":1,"./doctypes":2,"./filters":3,"./lexer":6,"./nodes":16,"./parser":23,"./runtime":24,"./self-closing":25,"./utils":26,"fs":27,"with":46}],6:[function(require,module,exports){
+},{"./compiler":1,"./doctypes":2,"./filters":3,"./lexer":6,"./nodes":16,"./parser":23,"./runtime":24,"./self-closing":25,"./utils":26,"fs":27,"with":46}],6:[function(_dereq_,module,exports){
 'use strict';
 
-var utils = require('./utils');
-var characterParser = require('character-parser');
-var selfClosing = require('./self-closing');
+var utils = _dereq_('./utils');
+var characterParser = _dereq_('character-parser');
+var selfClosing = _dereq_('./self-closing');
 
 
 /**
@@ -1946,10 +1946,10 @@ Lexer.prototype = {
   }
 };
 
-},{"./self-closing":25,"./utils":26,"character-parser":33}],7:[function(require,module,exports){
+},{"./self-closing":25,"./utils":26,"character-parser":33}],7:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Attrs` node.
@@ -2025,10 +2025,10 @@ Attrs.prototype.addAttributes = function (src) {
   this.attributeBlocks.push(src);
 };
 
-},{"./node":20}],8:[function(require,module,exports){
+},{"./node":20}],8:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `BlockComment` with the given `block`.
@@ -2051,10 +2051,10 @@ BlockComment.prototype.constructor = BlockComment;
 
 BlockComment.prototype.type = 'BlockComment';
 
-},{"./node":20}],9:[function(require,module,exports){
+},{"./node":20}],9:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a new `Block` with an optional `node`.
@@ -2165,10 +2165,10 @@ Block.prototype.clone = function(){
   return clone;
 };
 
-},{"./node":20}],10:[function(require,module,exports){
+},{"./node":20}],10:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a new `Case` with `expr`.
@@ -2200,10 +2200,10 @@ When.prototype.constructor = When;
 
 When.prototype.type = 'When';
 
-},{"./node":20}],11:[function(require,module,exports){
+},{"./node":20}],11:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Code` node with the given code `val`.
@@ -2227,10 +2227,10 @@ Code.prototype = Object.create(Node.prototype);
 Code.prototype.constructor = Code;
 
 Code.prototype.type = 'Code'; // prevent the minifiers removing this
-},{"./node":20}],12:[function(require,module,exports){
+},{"./node":20}],12:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Comment` with the given `val`, optionally `buffer`,
@@ -2252,10 +2252,10 @@ Comment.prototype.constructor = Comment;
 
 Comment.prototype.type = 'Comment';
 
-},{"./node":20}],13:[function(require,module,exports){
+},{"./node":20}],13:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Doctype` with the given `val`. 
@@ -2274,10 +2274,10 @@ Doctype.prototype.constructor = Doctype;
 
 Doctype.prototype.type = 'Doctype';
 
-},{"./node":20}],14:[function(require,module,exports){
+},{"./node":20}],14:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize an `Each` node, representing iteration
@@ -2302,10 +2302,10 @@ Each.prototype.constructor = Each;
 
 Each.prototype.type = 'Each';
 
-},{"./node":20}],15:[function(require,module,exports){
+},{"./node":20}],15:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Filter` node with the given
@@ -2328,28 +2328,28 @@ Filter.prototype.constructor = Filter;
 
 Filter.prototype.type = 'Filter';
 
-},{"./node":20}],16:[function(require,module,exports){
+},{"./node":20}],16:[function(_dereq_,module,exports){
 'use strict';
 
-exports.Node = require('./node');
-exports.Tag = require('./tag');
-exports.Code = require('./code');
-exports.Each = require('./each');
-exports.Case = require('./case');
-exports.Text = require('./text');
-exports.Block = require('./block');
-exports.MixinBlock = require('./mixin-block');
-exports.Mixin = require('./mixin');
-exports.Filter = require('./filter');
-exports.Comment = require('./comment');
-exports.Literal = require('./literal');
-exports.BlockComment = require('./block-comment');
-exports.Doctype = require('./doctype');
+exports.Node = _dereq_('./node');
+exports.Tag = _dereq_('./tag');
+exports.Code = _dereq_('./code');
+exports.Each = _dereq_('./each');
+exports.Case = _dereq_('./case');
+exports.Text = _dereq_('./text');
+exports.Block = _dereq_('./block');
+exports.MixinBlock = _dereq_('./mixin-block');
+exports.Mixin = _dereq_('./mixin');
+exports.Filter = _dereq_('./filter');
+exports.Comment = _dereq_('./comment');
+exports.Literal = _dereq_('./literal');
+exports.BlockComment = _dereq_('./block-comment');
+exports.Doctype = _dereq_('./doctype');
 
-},{"./block":9,"./block-comment":8,"./case":10,"./code":11,"./comment":12,"./doctype":13,"./each":14,"./filter":15,"./literal":17,"./mixin":19,"./mixin-block":18,"./node":20,"./tag":21,"./text":22}],17:[function(require,module,exports){
+},{"./block":9,"./block-comment":8,"./case":10,"./code":11,"./comment":12,"./doctype":13,"./each":14,"./filter":15,"./literal":17,"./mixin":19,"./mixin-block":18,"./node":20,"./tag":21,"./text":22}],17:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Literal` node with the given `str.
@@ -2368,10 +2368,10 @@ Literal.prototype.constructor = Literal;
 
 Literal.prototype.type = 'Literal';
 
-},{"./node":20}],18:[function(require,module,exports){
+},{"./node":20}],18:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a new `Block` with an optional `node`.
@@ -2388,10 +2388,10 @@ MixinBlock.prototype.constructor = MixinBlock;
 
 MixinBlock.prototype.type = 'MixinBlock';
 
-},{"./node":20}],19:[function(require,module,exports){
+},{"./node":20}],19:[function(_dereq_,module,exports){
 'use strict';
 
-var Attrs = require('./attrs');
+var Attrs = _dereq_('./attrs');
 
 /**
  * Initialize a new `Mixin` with `name` and `block`.
@@ -2416,7 +2416,7 @@ Mixin.prototype.constructor = Mixin;
 
 Mixin.prototype.type = 'Mixin';
 
-},{"./attrs":7}],20:[function(require,module,exports){
+},{"./attrs":7}],20:[function(_dereq_,module,exports){
 'use strict';
 
 var Node = module.exports = function Node(){};
@@ -2434,12 +2434,12 @@ Node.prototype.clone = function(){
 
 Node.prototype.type = '';
 
-},{}],21:[function(require,module,exports){
+},{}],21:[function(_dereq_,module,exports){
 'use strict';
 
-var Attrs = require('./attrs');
-var Block = require('./block');
-var inlineTags = require('../inline-tags');
+var Attrs = _dereq_('./attrs');
+var Block = _dereq_('./block');
+var inlineTags = _dereq_('../inline-tags');
 
 /**
  * Initialize a `Tag` node with the given tag `name` and optional `block`.
@@ -2522,10 +2522,10 @@ Tag.prototype.canInline = function(){
   return false;
 };
 
-},{"../inline-tags":4,"./attrs":7,"./block":9}],22:[function(require,module,exports){
+},{"../inline-tags":4,"./attrs":7,"./block":9}],22:[function(_dereq_,module,exports){
 'use strict';
 
-var Node = require('./node');
+var Node = _dereq_('./node');
 
 /**
  * Initialize a `Text` node with optional `line`.
@@ -2550,16 +2550,16 @@ Text.prototype.type = 'Text';
  */
 
 Text.prototype.isText = true;
-},{"./node":20}],23:[function(require,module,exports){
+},{"./node":20}],23:[function(_dereq_,module,exports){
 'use strict';
 
-var Lexer = require('./lexer');
-var nodes = require('./nodes');
-var utils = require('./utils');
-var filters = require('./filters');
-var path = require('path');
-var constantinople = require('constantinople');
-var parseJSExpression = require('character-parser').parseMax;
+var Lexer = _dereq_('./lexer');
+var nodes = _dereq_('./nodes');
+var utils = _dereq_('./utils');
+var filters = _dereq_('./filters');
+var path = _dereq_('path');
+var constantinople = _dereq_('constantinople');
+var parseJSExpression = _dereq_('character-parser').parseMax;
 var extname = path.extname;
 
 /**
@@ -2992,7 +2992,7 @@ Parser.prototype = {
    */
 
   resolvePath: function (path, purpose) {
-    var p = require('path');
+    var p = _dereq_('path');
     var dirname = p.dirname;
     var basename = p.basename;
     var join = p.join;
@@ -3015,7 +3015,7 @@ Parser.prototype = {
    */
 
   parseExtends: function(){
-    var fs = require('fs');
+    var fs = _dereq_('fs');
 
     var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
     if ('.jade' != path.substr(-5)) path += '.jade';
@@ -3083,7 +3083,7 @@ Parser.prototype = {
    */
 
   parseInclude: function(){
-    var fs = require('fs');
+    var fs = _dereq_('fs');
     var tok = this.expect('include');
 
     var path = this.resolvePath(tok.val.trim(), 'include');
@@ -3367,7 +3367,7 @@ Parser.prototype = {
   }
 };
 
-},{"./filters":3,"./lexer":6,"./nodes":16,"./utils":26,"character-parser":33,"constantinople":34,"fs":27,"path":30}],24:[function(require,module,exports){
+},{"./filters":3,"./lexer":6,"./nodes":16,"./utils":26,"character-parser":33,"constantinople":34,"fs":27,"path":30}],24:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -3547,7 +3547,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     throw err;
   }
   try {
-    str =  str || require('fs').readFileSync(filename, 'utf8')
+    str =  str || _dereq_('fs').readFileSync(filename, 'utf8')
   } catch (ex) {
     rethrow(err, null, lineno)
   }
@@ -3572,7 +3572,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
   throw err;
 };
 
-},{"fs":27}],25:[function(require,module,exports){
+},{"fs":27}],25:[function(_dereq_,module,exports){
 'use strict';
 
 // source: http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
@@ -3596,7 +3596,7 @@ module.exports = [
   , 'wbr'
 ];
 
-},{}],26:[function(require,module,exports){
+},{}],26:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -3614,9 +3614,9 @@ exports.merge = function(a, b) {
 };
 
 
-},{}],27:[function(require,module,exports){
+},{}],27:[function(_dereq_,module,exports){
 
-},{}],28:[function(require,module,exports){
+},{}],28:[function(_dereq_,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3641,7 +3641,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],29:[function(require,module,exports){
+},{}],29:[function(_dereq_,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3696,8 +3696,9 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],30:[function(require,module,exports){
-var process=require("__browserify_process");// Copyright Joyent, Inc. and other Node contributors.
+},{}],30:[function(_dereq_,module,exports){
+(function (process){
+// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -3922,15 +3923,17 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-},{"__browserify_process":29}],31:[function(require,module,exports){
+}).call(this,_dereq_("/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":29}],31:[function(_dereq_,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],32:[function(require,module,exports){
-var process=require("__browserify_process"),global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};// Copyright Joyent, Inc. and other Node contributors.
+},{}],32:[function(_dereq_,module,exports){
+(function (process,global){
+// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -4455,7 +4458,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = require('./support/isBuffer');
+exports.isBuffer = _dereq_('./support/isBuffer');
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -4499,7 +4502,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require('inherits');
+exports.inherits = _dereq_('inherits');
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -4517,7 +4520,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-},{"./support/isBuffer":31,"__browserify_process":29,"inherits":28}],33:[function(require,module,exports){
+}).call(this,_dereq_("/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":31,"/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":29,"inherits":28}],33:[function(_dereq_,module,exports){
 exports = (module.exports = parse);
 exports.parse = parse;
 function parse(src, state, options) {
@@ -4736,10 +4740,10 @@ function isRegexp(history) {
   return false;
 }
 
-},{}],34:[function(require,module,exports){
+},{}],34:[function(_dereq_,module,exports){
 'use strict'
 
-var uglify = require('uglify-js')
+var uglify = _dereq_('uglify-js')
 
 var lastSRC = '(null)'
 var lastRes = true
@@ -4777,17 +4781,17 @@ function detect(src) {
     })
   return globals
 }
-},{"uglify-js":45}],35:[function(require,module,exports){
+},{"uglify-js":45}],35:[function(_dereq_,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
-exports.SourceMapGenerator = require('./source-map/source-map-generator').SourceMapGenerator;
-exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
-exports.SourceNode = require('./source-map/source-node').SourceNode;
+exports.SourceMapGenerator = _dereq_('./source-map/source-map-generator').SourceMapGenerator;
+exports.SourceMapConsumer = _dereq_('./source-map/source-map-consumer').SourceMapConsumer;
+exports.SourceNode = _dereq_('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":40,"./source-map/source-map-generator":41,"./source-map/source-node":42}],36:[function(require,module,exports){
+},{"./source-map/source-map-consumer":40,"./source-map/source-map-generator":41,"./source-map/source-node":42}],36:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -4795,11 +4799,11 @@ exports.SourceNode = require('./source-map/source-node').SourceNode;
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
-  var util = require('./util');
+  var util = _dereq_('./util');
 
   /**
    * A data structure which is a combination of an array and a set. Adding a new
@@ -4886,7 +4890,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":43,"amdefine":44}],37:[function(require,module,exports){
+},{"./util":43,"amdefine":44}],37:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -4924,11 +4928,11 @@ define(function (require, exports, module) {
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
-  var base64 = require('./base64');
+  var base64 = _dereq_('./base64');
 
   // A single base 64 digit can contain 6 bits of data. For the base 64 variable
   // length quantities we use in the source map spec, the first bit is the sign,
@@ -5032,7 +5036,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":38,"amdefine":44}],38:[function(require,module,exports){
+},{"./base64":38,"amdefine":44}],38:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -5040,9 +5044,9 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
   var charToIntMap = {};
   var intToCharMap = {};
@@ -5076,7 +5080,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":44}],39:[function(require,module,exports){
+},{"amdefine":44}],39:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -5084,9 +5088,9 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
   /**
    * Recursive implementation of binary search.
@@ -5159,7 +5163,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":44}],40:[function(require,module,exports){
+},{"amdefine":44}],40:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -5167,14 +5171,14 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
-  var util = require('./util');
-  var binarySearch = require('./binary-search');
-  var ArraySet = require('./array-set').ArraySet;
-  var base64VLQ = require('./base64-vlq');
+  var util = _dereq_('./util');
+  var binarySearch = _dereq_('./binary-search');
+  var ArraySet = _dereq_('./array-set').ArraySet;
+  var base64VLQ = _dereq_('./base64-vlq');
 
   /**
    * A SourceMapConsumer instance represents a parsed source map which we can
@@ -5191,7 +5195,7 @@ define(function (require, exports, module) {
    *   - sourceRoot: Optional. The URL root from which all sources are relative.
    *   - sourcesContent: Optional. An array of contents of the original source files.
    *   - mappings: A string of base64 VLQs which contain the actual mappings.
-   *   - file: The generated file this source map is associated with.
+   *   - file: Optional. The generated file this source map is associated with.
    *
    * Here is an example source map, taken from the source map spec[0]:
    *
@@ -5419,6 +5423,7 @@ define(function (require, exports, module) {
         }
       }
 
+      this.__generatedMappings.sort(util.compareByGeneratedPositions);
       this.__originalMappings.sort(util.compareByOriginalPositions);
     };
 
@@ -5474,7 +5479,7 @@ define(function (require, exports, module) {
                                       "generatedColumn",
                                       util.compareByGeneratedPositions);
 
-      if (mapping) {
+      if (mapping && mapping.generatedLine === needle.generatedLine) {
         var source = util.getArg(mapping, 'source', null);
         if (source && this.sourceRoot) {
           source = util.join(this.sourceRoot, source);
@@ -5638,7 +5643,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":36,"./base64-vlq":37,"./binary-search":39,"./util":43,"amdefine":44}],41:[function(require,module,exports){
+},{"./array-set":36,"./base64-vlq":37,"./binary-search":39,"./util":43,"amdefine":44}],41:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -5646,24 +5651,27 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
-  var base64VLQ = require('./base64-vlq');
-  var util = require('./util');
-  var ArraySet = require('./array-set').ArraySet;
+  var base64VLQ = _dereq_('./base64-vlq');
+  var util = _dereq_('./util');
+  var ArraySet = _dereq_('./array-set').ArraySet;
 
   /**
    * An instance of the SourceMapGenerator represents a source map which is
-   * being built incrementally. To create a new one, you must pass an object
-   * with the following properties:
+   * being built incrementally. You may pass an object with the following
+   * properties:
    *
    *   - file: The filename of the generated source.
-   *   - sourceRoot: An optional root for all URLs in this source map.
+   *   - sourceRoot: A root for all relative URLs in this source map.
    */
   function SourceMapGenerator(aArgs) {
-    this._file = util.getArg(aArgs, 'file');
+    if (!aArgs) {
+      aArgs = {};
+    }
+    this._file = util.getArg(aArgs, 'file', null);
     this._sourceRoot = util.getArg(aArgs, 'sourceRoot', null);
     this._sources = new ArraySet();
     this._names = new ArraySet();
@@ -5793,11 +5801,23 @@ define(function (require, exports, module) {
    * @param aSourceMapConsumer The source map to be applied.
    * @param aSourceFile Optional. The filename of the source file.
    *        If omitted, SourceMapConsumer's file property will be used.
+   * @param aSourceMapPath Optional. The dirname of the path to the source map
+   *        to be applied. If relative, it is relative to the SourceMapConsumer.
+   *        This parameter is needed when the two source maps aren't in the same
+   *        directory, and the source map to be applied contains relative source
+   *        paths. If so, those relative source paths need to be rewritten
+   *        relative to the SourceMapGenerator.
    */
   SourceMapGenerator.prototype.applySourceMap =
-    function SourceMapGenerator_applySourceMap(aSourceMapConsumer, aSourceFile) {
+    function SourceMapGenerator_applySourceMap(aSourceMapConsumer, aSourceFile, aSourceMapPath) {
       // If aSourceFile is omitted, we will use the file property of the SourceMap
       if (!aSourceFile) {
+        if (!aSourceMapConsumer.file) {
+          throw new Error(
+            'SourceMapGenerator.prototype.applySourceMap requires either an explicit source file, ' +
+            'or the source map\'s "file" property. Both were omitted.'
+          );
+        }
         aSourceFile = aSourceMapConsumer.file;
       }
       var sourceRoot = this._sourceRoot;
@@ -5820,10 +5840,12 @@ define(function (require, exports, module) {
           });
           if (original.source !== null) {
             // Copy mapping
+            mapping.source = original.source;
+            if (aSourceMapPath) {
+              mapping.source = util.join(aSourceMapPath, mapping.source)
+            }
             if (sourceRoot) {
-              mapping.source = util.relative(sourceRoot, original.source);
-            } else {
-              mapping.source = original.source;
+              mapping.source = util.relative(sourceRoot, mapping.source);
             }
             mapping.originalLine = original.line;
             mapping.originalColumn = original.column;
@@ -5893,7 +5915,7 @@ define(function (require, exports, module) {
         throw new Error('Invalid mapping: ' + JSON.stringify({
           generated: aGenerated,
           source: aSource,
-          orginal: aOriginal,
+          original: aOriginal,
           name: aName
         }));
       }
@@ -6020,7 +6042,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":36,"./base64-vlq":37,"./util":43,"amdefine":44}],42:[function(require,module,exports){
+},{"./array-set":36,"./base64-vlq":37,"./util":43,"amdefine":44}],42:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -6028,12 +6050,12 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
-  var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
-  var util = require('./util');
+  var SourceMapGenerator = _dereq_('./source-map-generator').SourceMapGenerator;
+  var util = _dereq_('./util');
 
   /**
    * SourceNodes provide a way to abstract over interpolating/concatenating
@@ -6082,41 +6104,16 @@ define(function (require, exports, module) {
       var lastMapping = null;
 
       aSourceMapConsumer.eachMapping(function (mapping) {
-        if (lastMapping === null) {
-          // We add the generated code until the first mapping
-          // to the SourceNode without any mapping.
-          // Each line is added as separate string.
-          while (lastGeneratedLine < mapping.generatedLine) {
-            node.add(remainingLines.shift() + "\n");
-            lastGeneratedLine++;
-          }
-          if (lastGeneratedColumn < mapping.generatedColumn) {
-            var nextLine = remainingLines[0];
-            node.add(nextLine.substr(0, mapping.generatedColumn));
-            remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-            lastGeneratedColumn = mapping.generatedColumn;
-          }
-        } else {
+        if (lastMapping !== null) {
           // We add the code from "lastMapping" to "mapping":
           // First check if there is a new line in between.
           if (lastGeneratedLine < mapping.generatedLine) {
             var code = "";
-            // Associate full lines with "lastMapping"
-            do {
-              code += remainingLines.shift() + "\n";
-              lastGeneratedLine++;
-              lastGeneratedColumn = 0;
-            } while (lastGeneratedLine < mapping.generatedLine);
-            // When we reached the correct line, we add code until we
-            // reach the correct column too.
-            if (lastGeneratedColumn < mapping.generatedColumn) {
-              var nextLine = remainingLines[0];
-              code += nextLine.substr(0, mapping.generatedColumn);
-              remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-              lastGeneratedColumn = mapping.generatedColumn;
-            }
-            // Create the SourceNode.
-            addMappingWithCode(lastMapping, code);
+            // Associate first line with "lastMapping"
+            addMappingWithCode(lastMapping, remainingLines.shift() + "\n");
+            lastGeneratedLine++;
+            lastGeneratedColumn = 0;
+            // The remaining code is added without mapping
           } else {
             // There is no new line in between.
             // Associate the code between "lastGeneratedColumn" and
@@ -6128,14 +6125,37 @@ define(function (require, exports, module) {
                                                 lastGeneratedColumn);
             lastGeneratedColumn = mapping.generatedColumn;
             addMappingWithCode(lastMapping, code);
+            // No more remaining code, continue
+            lastMapping = mapping;
+            return;
           }
+        }
+        // We add the generated code until the first mapping
+        // to the SourceNode without any mapping.
+        // Each line is added as separate string.
+        while (lastGeneratedLine < mapping.generatedLine) {
+          node.add(remainingLines.shift() + "\n");
+          lastGeneratedLine++;
+        }
+        if (lastGeneratedColumn < mapping.generatedColumn) {
+          var nextLine = remainingLines[0];
+          node.add(nextLine.substr(0, mapping.generatedColumn));
+          remainingLines[0] = nextLine.substr(mapping.generatedColumn);
+          lastGeneratedColumn = mapping.generatedColumn;
         }
         lastMapping = mapping;
       }, this);
       // We have processed all mappings.
-      // Associate the remaining code in the current line with "lastMapping"
-      // and add the remaining lines without any mapping
-      addMappingWithCode(lastMapping, remainingLines.join("\n"));
+      if (remainingLines.length > 0) {
+        if (lastMapping) {
+          // Associate the remaining code in the current line with "lastMapping"
+          var lastLine = remainingLines.shift();
+          if (remainingLines.length > 0) lastLine += "\n";
+          addMappingWithCode(lastMapping, lastLine);
+        }
+        // and add the remaining lines without any mapping
+        node.add(remainingLines.join("\n"));
+      }
 
       // Copy sourcesContent into SourceNode
       aSourceMapConsumer.sources.forEach(function (sourceFile) {
@@ -6373,10 +6393,28 @@ define(function (require, exports, module) {
         lastOriginalSource = null;
         sourceMappingActive = false;
       }
-      chunk.split('').forEach(function (ch) {
+      chunk.split('').forEach(function (ch, idx, array) {
         if (ch === '\n') {
           generated.line++;
           generated.column = 0;
+          // Mappings end at eol
+          if (idx + 1 === array.length) {
+            lastOriginalSource = null;
+            sourceMappingActive = false;
+          } else if (sourceMappingActive) {
+            map.addMapping({
+              source: original.source,
+              original: {
+                line: original.line,
+                column: original.column
+              },
+              generated: {
+                line: generated.line,
+                column: generated.column
+              },
+              name: original.name
+            });
+          }
         } else {
           generated.column++;
         }
@@ -6393,7 +6431,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":41,"./util":43,"amdefine":44}],43:[function(require,module,exports){
+},{"./source-map-generator":41,"./util":43,"amdefine":44}],43:[function(_dereq_,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -6401,9 +6439,9 @@ define(function (require, exports, module) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
+    var define = _dereq_('amdefine')(module, _dereq_);
 }
-define(function (require, exports, module) {
+define(function (_dereq_, exports, module) {
 
   /**
    * This is a helper function for getting values from parameter/options
@@ -6426,8 +6464,8 @@ define(function (require, exports, module) {
   }
   exports.getArg = getArg;
 
-  var urlRegexp = /([\w+\-.]+):\/\/((\w+:\w+)@)?([\w.]+)?(:(\d+))?(\S+)?/;
-  var dataUrlRegexp = /^data:.+\,.+/;
+  var urlRegexp = /^(?:([\w+\-.]+):)?\/\/(?:(\w+:\w+)@)?([\w.]*)(?::(\d+))?(\S*)$/;
+  var dataUrlRegexp = /^data:.+\,.+$/;
 
   function urlParse(aUrl) {
     var match = aUrl.match(urlRegexp);
@@ -6436,18 +6474,22 @@ define(function (require, exports, module) {
     }
     return {
       scheme: match[1],
-      auth: match[3],
-      host: match[4],
-      port: match[6],
-      path: match[7]
+      auth: match[2],
+      host: match[3],
+      port: match[4],
+      path: match[5]
     };
   }
   exports.urlParse = urlParse;
 
   function urlGenerate(aParsedUrl) {
-    var url = aParsedUrl.scheme + "://";
+    var url = '';
+    if (aParsedUrl.scheme) {
+      url += aParsedUrl.scheme + ':';
+    }
+    url += '//';
     if (aParsedUrl.auth) {
-      url += aParsedUrl.auth + "@"
+      url += aParsedUrl.auth + '@';
     }
     if (aParsedUrl.host) {
       url += aParsedUrl.host;
@@ -6462,19 +6504,112 @@ define(function (require, exports, module) {
   }
   exports.urlGenerate = urlGenerate;
 
-  function join(aRoot, aPath) {
-    var url;
+  /**
+   * Normalizes a path, or the path portion of a URL:
+   *
+   * - Replaces consequtive slashes with one slash.
+   * - Removes unnecessary '.' parts.
+   * - Removes unnecessary '<dir>/..' parts.
+   *
+   * Based on code in the Node.js 'path' core module.
+   *
+   * @param aPath The path or url to normalize.
+   */
+  function normalize(aPath) {
+    var path = aPath;
+    var url = urlParse(aPath);
+    if (url) {
+      if (!url.path) {
+        return aPath;
+      }
+      path = url.path;
+    }
+    var isAbsolute = (path.charAt(0) === '/');
 
-    if (aPath.match(urlRegexp) || aPath.match(dataUrlRegexp)) {
+    var parts = path.split(/\/+/);
+    for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {
+      part = parts[i];
+      if (part === '.') {
+        parts.splice(i, 1);
+      } else if (part === '..') {
+        up++;
+      } else if (up > 0) {
+        if (part === '') {
+          // The first part is blank if the path is absolute. Trying to go
+          // above the root is a no-op. Therefore we can remove all '..' parts
+          // directly after the root.
+          parts.splice(i + 1, up);
+          up = 0;
+        } else {
+          parts.splice(i, 2);
+          up--;
+        }
+      }
+    }
+    path = parts.join('/');
+
+    if (path === '') {
+      path = isAbsolute ? '/' : '.';
+    }
+
+    if (url) {
+      url.path = path;
+      return urlGenerate(url);
+    }
+    return path;
+  }
+  exports.normalize = normalize;
+
+  /**
+   * Joins two paths/URLs.
+   *
+   * @param aRoot The root path or URL.
+   * @param aPath The path or URL to be joined with the root.
+   *
+   * - If aPath is a URL or a data URI, aPath is returned, unless aPath is a
+   *   scheme-relative URL: Then the scheme of aRoot, if any, is prepended
+   *   first.
+   * - Otherwise aPath is a path. If aRoot is a URL, then its path portion
+   *   is updated with the result and aRoot is returned. Otherwise the result
+   *   is returned.
+   *   - If aPath is absolute, the result is aPath.
+   *   - Otherwise the two paths are joined with a slash.
+   * - Joining for example 'http://' and 'www.example.com' is also supported.
+   */
+  function join(aRoot, aPath) {
+    var aPathUrl = urlParse(aPath);
+    var aRootUrl = urlParse(aRoot);
+    if (aRootUrl) {
+      aRoot = aRootUrl.path || '/';
+    }
+
+    // `join(foo, '//www.example.org')`
+    if (aPathUrl && !aPathUrl.scheme) {
+      if (aRootUrl) {
+        aPathUrl.scheme = aRootUrl.scheme;
+      }
+      return urlGenerate(aPathUrl);
+    }
+
+    if (aPathUrl || aPath.match(dataUrlRegexp)) {
       return aPath;
     }
 
-    if (aPath.charAt(0) === '/' && (url = urlParse(aRoot))) {
-      url.path = aPath;
-      return urlGenerate(url);
+    // `join('http://', 'www.example.com')`
+    if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {
+      aRootUrl.host = aPath;
+      return urlGenerate(aRootUrl);
     }
 
-    return aRoot.replace(/\/$/, '') + '/' + aPath;
+    var joined = aPath.charAt(0) === '/'
+      ? aPath
+      : normalize(aRoot.replace(/\/+$/, '') + '/' + aPath);
+
+    if (aRootUrl) {
+      aRootUrl.path = joined;
+      return urlGenerate(aRootUrl);
+    }
+    return joined;
   }
   exports.join = join;
 
@@ -6600,8 +6735,9 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":44}],44:[function(require,module,exports){
-var process=require("__browserify_process"),__filename="/../node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js";/** vim: et:ts=4:sw=4:sts=4
+},{"amdefine":44}],44:[function(_dereq_,module,exports){
+(function (process,__filename){
+/** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 0.1.0 Copyright (c) 2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/amdefine for details
@@ -6626,7 +6762,7 @@ function amdefine(module, requireFn) {
     var defineCache = {},
         loaderCache = {},
         alreadyCalled = false,
-        path = require('path'),
+        path = _dereq_('path'),
         makeRequire, stringRequire;
 
     /**
@@ -6901,9 +7037,10 @@ function amdefine(module, requireFn) {
 
 module.exports = amdefine;
 
-},{"__browserify_process":29,"path":30}],45:[function(require,module,exports){
-var sys = require("util");
-var MOZ_SourceMap = require("source-map");
+}).call(this,_dereq_("/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js")
+},{"/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":29,"path":30}],45:[function(_dereq_,module,exports){
+var sys = _dereq_("util");
+var MOZ_SourceMap = _dereq_("source-map");
 var UglifyJS = exports;
 /***********************************************************************
 
@@ -8241,7 +8378,7 @@ TreeWalker.prototype = {
 
 var KEYWORDS = 'break case catch const continue debugger default delete do else finally for function if in instanceof new return switch throw try typeof var void while with';
 var KEYWORDS_ATOM = 'false null true';
-var RESERVED_WORDS = 'abstract boolean byte char class double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized this throws transient volatile'
+var RESERVED_WORDS = 'abstract boolean byte char class double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized this throws transient volatile yield'
     + " " + KEYWORDS_ATOM + " " + KEYWORDS;
 var KEYWORDS_BEFORE_EXPRESSION = 'return new delete throw else case';
 
@@ -8797,7 +8934,7 @@ var PRECEDENCE = (function(a, ret){
     {}
 );
 
-var STATEMENTS_WITH_LABELS = array_to_hash([ "for", "do", "while", "switch" ]);
+var STATEMENTS_WITH_LABELS = array_to_hash([ "fo" + "r", "do", "while", "switch" ]);
 
 var ATOMIC_START_TOKEN = array_to_hash([ "atom", "num", "string", "regexp", "name" ]);
 
@@ -8980,7 +9117,7 @@ function parse($TEXT, options) {
                     body      : in_loop(statement)
                 });
 
-              case "for":
+              case "fo" + "r":
                 return for_();
 
               case "function":
@@ -9576,7 +9713,7 @@ function parse($TEXT, options) {
                 condition   : expr,
                 consequent  : yes,
                 alternative : expression(false, no_in),
-                end         : peek()
+                end         : prev()
             });
         }
         return expr;
@@ -10274,7 +10411,7 @@ AST_Toplevel.DEFMETHOD("compute_char_frequency", function(options){
         else if (node instanceof AST_Lambda)
             base54.consider("function");
         else if (node instanceof AST_For)
-            base54.consider("for");
+            base54.consider("fo" + "r");
         else if (node instanceof AST_ForIn)
             base54.consider("for in");
         else if (node instanceof AST_Switch)
@@ -10482,22 +10619,23 @@ AST_Toplevel.DEFMETHOD("scope_warnings", function(options){
 function OutputStream(options) {
 
     options = defaults(options, {
-        indent_start  : 0,
-        indent_level  : 4,
-        quote_keys    : false,
-        space_colon   : true,
-        ascii_only    : false,
-        inline_script : false,
-        width         : 80,
-        max_line_len  : 32000,
-        beautify      : false,
-        source_map    : null,
-        bracketize    : false,
-        semicolons    : true,
-        comments      : false,
-        preserve_line : false,
-        screw_ie8     : false,
-        preamble      : null,
+        indent_start     : 0,
+        indent_level     : 4,
+        quote_keys       : false,
+        space_colon      : true,
+        ascii_only       : false,
+        unescape_regexps : false,
+        inline_script    : false,
+        width            : 80,
+        max_line_len     : 32000,
+        beautify         : false,
+        source_map       : null,
+        bracketize       : false,
+        semicolons       : true,
+        comments         : false,
+        preserve_line    : false,
+        screw_ie8        : false,
+        preamble         : null,
     }, true);
 
     var indentation = 0;
@@ -10822,13 +10960,20 @@ function OutputStream(options) {
                 var comments = start.comments_before || [];
 
                 // XXX: ugly fix for https://github.com/mishoo/UglifyJS2/issues/112
-                //      if this node is `return` or `throw`, we cannot allow comments before
-                //      the returned or thrown value.
-                if (self instanceof AST_Exit && self.value
-                    && self.value.start.comments_before
-                    && self.value.start.comments_before.length > 0) {
-                    comments = comments.concat(self.value.start.comments_before);
-                    self.value.start.comments_before = [];
+                //               and https://github.com/mishoo/UglifyJS2/issues/372
+                if (self instanceof AST_Exit && self.value) {
+                    self.value.walk(new TreeWalker(function(node){
+                        if (node.start && node.start.comments_before) {
+                            comments = comments.concat(node.start.comments_before);
+                            node.start.comments_before = [];
+                        }
+                        if (node instanceof AST_Function ||
+                            node instanceof AST_Array ||
+                            node instanceof AST_Object)
+                        {
+                            return true; // don't go inside.
+                        }
+                    }));
                 }
 
                 if (c.test) {
@@ -10892,7 +11037,7 @@ function OutputStream(options) {
             || p instanceof AST_Unary            // !(foo, bar, baz)
             || p instanceof AST_Binary           // 1 + (2, 3) + 4 ==> 8
             || p instanceof AST_VarDef           // var a = (1, 2), b = a + a; ==> b == 4
-            || p instanceof AST_Dot              // (1, {foo:2}).foo ==> 2
+            || p instanceof AST_PropAccess       // (1, {foo:2}).foo or (1, {foo:2})["foo"] ==> 2
             || p instanceof AST_Array            // [ 1, (2, 3), 4 ] ==> [ 1, 3, 4 ]
             || p instanceof AST_ObjectProperty   // { foo: (1, 2) }.foo ==> 2
             || p instanceof AST_Conditional      /* (false, true) ? (a = 10, b = 20) : (c = 30)
@@ -11081,7 +11226,7 @@ function OutputStream(options) {
         self._do_print_body(output);
     });
     DEFPRINT(AST_For, function(self, output){
-        output.print("for");
+        output.print("fo" + "r");
         output.space();
         output.with_parens(function(){
             if (self.init) {
@@ -11110,7 +11255,7 @@ function OutputStream(options) {
         self._do_print_body(output);
     });
     DEFPRINT(AST_ForIn, function(self, output){
-        output.print("for");
+        output.print("fo" + "r");
         output.space();
         output.with_parens(function(){
             self.init.print(output);
@@ -11547,10 +11692,47 @@ function OutputStream(options) {
     DEFPRINT(AST_Number, function(self, output){
         output.print(make_num(self.getValue()));
     });
+
+    function regexp_safe_literal(code) {
+        return [
+            0x5c   , // \
+            0x2f   , // /
+            0x2e   , // .
+            0x2b   , // +
+            0x2a   , // *
+            0x3f   , // ?
+            0x28   , // (
+            0x29   , // )
+            0x5b   , // [
+            0x5d   , // ]
+            0x7b   , // {
+            0x7d   , // }
+            0x24   , // $
+            0x5e   , // ^
+            0x3a   , // :
+            0x7c   , // |
+            0x21   , // !
+            0x0a   , // \n
+            0x0d   , // \r
+            0x00   , // \0
+            0xfeff , // Unicode BOM
+            0x2028 , // unicode "line separator"
+            0x2029 , // unicode "paragraph separator"
+        ].indexOf(code) < 0;
+    };
+
     DEFPRINT(AST_RegExp, function(self, output){
         var str = self.getValue().toString();
-        if (output.option("ascii_only"))
+        if (output.option("ascii_only")) {
             str = output.to_ascii(str);
+        } else if (output.option("unescape_regexps")) {
+            str = str.split("\\\\").map(function(str){
+                return str.replace(/\\u[0-9a-fA-F]{4}|\\x[0-9a-fA-F]{2}/g, function(s){
+                    var code = parseInt(s.substr(2), 16);
+                    return regexp_safe_literal(code) ? String.fromCharCode(code) : s;
+                });
+            }).join("\\\\");
+        }
         output.print(str);
         var p = output.parent();
         if (p instanceof AST_Binary && /^in/.test(p.operator) && p.left === self)
@@ -11763,6 +11945,7 @@ function Compressor(options, false_by_default) {
         negate_iife   : !false_by_default,
         screw_ie8     : false,
         drop_console  : false,
+        angular       : false,
 
         warnings      : true,
         global_defs   : {}
@@ -11890,6 +12073,9 @@ merge(Compressor.prototype, {
         var CHANGED;
         do {
             CHANGED = false;
+            if (compressor.option("angular")) {
+                statements = process_for_angular(statements);
+            }
             statements = eliminate_spurious_blocks(statements);
             if (compressor.option("dead_code")) {
                 statements = eliminate_dead_code(statements, compressor);
@@ -11910,6 +12096,50 @@ merge(Compressor.prototype, {
         }
 
         return statements;
+
+        function process_for_angular(statements) {
+            function make_injector(func, name) {
+                return make_node(AST_SimpleStatement, func, {
+                    body: make_node(AST_Assign, func, {
+                        operator: "=",
+                        left: make_node(AST_Dot, name, {
+                            expression: make_node(AST_SymbolRef, name, name),
+                            property: "$inject"
+                        }),
+                        right: make_node(AST_Array, func, {
+                            elements: func.argnames.map(function(sym){
+                                return make_node(AST_String, sym, { value: sym.name });
+                            })
+                        })
+                    })
+                });
+            }
+            return statements.reduce(function(a, stat){
+                a.push(stat);
+                var token = stat.start;
+                var comments = token.comments_before;
+                if (comments && comments.length > 0) {
+                    var last = comments.pop();
+                    if (/@ngInject/.test(last.value)) {
+                        // case 1: defun
+                        if (stat instanceof AST_Defun) {
+                            a.push(make_injector(stat, stat.name));
+                        }
+                        else if (stat instanceof AST_Definitions) {
+                            stat.definitions.forEach(function(def){
+                                if (def.value && def.value instanceof AST_Lambda) {
+                                    a.push(make_injector(def.value, def.name));
+                                }
+                            });
+                        }
+                        else {
+                            compressor.warn("Unknown statement marked with @ngInject [{file}:{line},{col}]", token);
+                        }
+                    }
+                }
+                return a;
+            }, []);
+        }
 
         function eliminate_spurious_blocks(statements) {
             var seen_dirs = [];
@@ -13528,6 +13758,18 @@ merge(Compressor.prototype, {
                 return self.car;
             }
         }
+        if (self.cdr instanceof AST_UnaryPrefix
+            && self.cdr.operator == "void"
+            && !self.cdr.expression.has_side_effects(compressor)) {
+            self.cdr.operator = self.car;
+            return self.cdr;
+        }
+        if (self.cdr instanceof AST_Undefined) {
+            return make_node(AST_UnaryPrefix, self, {
+                operator   : "void",
+                expression : self.car
+            });
+        }
         return self;
     });
 
@@ -13899,7 +14141,7 @@ merge(Compressor.prototype, {
              * ==>
              * exp = foo ? something : something_else;
              */
-            self = make_node(AST_Assign, self, {
+            return make_node(AST_Assign, self, {
                 operator: consequent.operator,
                 left: consequent.left,
                 right: make_node(AST_Conditional, self, {
@@ -13908,6 +14150,25 @@ merge(Compressor.prototype, {
                     alternative: alternative.right
                 })
             });
+        }
+        if (consequent instanceof AST_Call
+            && alternative.TYPE === consequent.TYPE
+            && consequent.args.length == alternative.args.length
+            && consequent.expression.equivalent_to(alternative.expression)) {
+            if (consequent.args.length == 0) {
+                return make_node(AST_Seq, self, {
+                    car: self.condition,
+                    cdr: consequent
+                });
+            }
+            if (consequent.args.length == 1) {
+                consequent.args[0] = make_node(AST_Conditional, self, {
+                    condition: self.condition,
+                    consequent: consequent.args[0],
+                    alternative: alternative.args[0]
+                });
+                return consequent;
+            }
         }
         return self;
     });
@@ -13946,6 +14207,12 @@ merge(Compressor.prototype, {
                 return make_node(AST_Dot, self, {
                     expression : self.expression,
                     property   : prop
+                });
+            }
+            var v = parseFloat(prop);
+            if (!isNaN(v) && v.toString() == prop) {
+                self.property = make_node(AST_Number, self.property, {
+                    value: v
                 });
             }
         }
@@ -14478,6 +14745,7 @@ exports.AST_Node.warn_function = function (txt) { if (typeof console != "undefin
 
 exports.minify = function (files, options) {
     options = UglifyJS.defaults(options, {
+        spidermonkey : false,
         outSourceMap : null,
         sourceRoot   : null,
         inSourceMap  : null,
@@ -14487,22 +14755,26 @@ exports.minify = function (files, options) {
         output       : null,
         compress     : {}
     });
-    if (typeof files == "string")
-        files = [ files ];
-
     UglifyJS.base54.reset();
 
     // 1. parse
     var toplevel = null;
-    files.forEach(function(file){
-        var code = options.fromString
-            ? file
-            : fs.readFileSync(file, "utf8");
-        toplevel = UglifyJS.parse(code, {
-            filename: options.fromString ? "?" : file,
-            toplevel: toplevel
+
+    if (options.spidermonkey) {
+        toplevel = UglifyJS.AST_Node.from_mozilla_ast(files);
+    } else {
+        if (typeof files == "string")
+            files = [ files ];
+        files.forEach(function(file){
+            var code = options.fromString
+                ? file
+                : fs.readFileSync(file, "utf8");
+            toplevel = UglifyJS.parse(code, {
+                filename: options.fromString ? "?" : file,
+                toplevel: toplevel
+            });
         });
-    });
+    }
 
     // 2. compress
     if (options.compress) {
@@ -14578,9 +14850,9 @@ exports.describe_ast = function () {
     doitem(UglifyJS.AST_Node);
     return out + "";
 };
-},{"source-map":35,"util":32}],46:[function(require,module,exports){
-var uglify = require('uglify-js')
-var globalVars = require('./vars')
+},{"source-map":35,"util":32}],46:[function(_dereq_,module,exports){
+var uglify = _dereq_('uglify-js')
+var globalVars = _dereq_('./vars')
 
 module.exports = addWith
 
@@ -14625,26 +14897,27 @@ function detect(src) {
         })
     return globals;
 }
-},{"./vars":58,"uglify-js":57}],47:[function(require,module,exports){
+},{"./vars":58,"uglify-js":57}],47:[function(_dereq_,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"./source-map/source-map-consumer":52,"./source-map/source-map-generator":53,"./source-map/source-node":54}],48:[function(require,module,exports){
+},{"./source-map/source-map-consumer":52,"./source-map/source-map-generator":53,"./source-map/source-node":54}],48:[function(_dereq_,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"./util":55,"amdefine":56}],49:[function(require,module,exports){
+},{"./util":55,"amdefine":56}],49:[function(_dereq_,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./base64":50,"amdefine":56}],50:[function(require,module,exports){
+},{"./base64":50,"amdefine":56}],50:[function(_dereq_,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"amdefine":56}],51:[function(require,module,exports){
+},{"amdefine":56}],51:[function(_dereq_,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"amdefine":56}],52:[function(require,module,exports){
+},{"amdefine":56}],52:[function(_dereq_,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./array-set":48,"./base64-vlq":49,"./binary-search":51,"./util":55,"amdefine":56}],53:[function(require,module,exports){
+},{"./array-set":48,"./base64-vlq":49,"./binary-search":51,"./util":55,"amdefine":56}],53:[function(_dereq_,module,exports){
 arguments[4][41][0].apply(exports,arguments)
-},{"./array-set":48,"./base64-vlq":49,"./util":55,"amdefine":56}],54:[function(require,module,exports){
+},{"./array-set":48,"./base64-vlq":49,"./util":55,"amdefine":56}],54:[function(_dereq_,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"./source-map-generator":53,"./util":55,"amdefine":56}],55:[function(require,module,exports){
+},{"./source-map-generator":53,"./util":55,"amdefine":56}],55:[function(_dereq_,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"amdefine":56}],56:[function(require,module,exports){
-var process=require("__browserify_process"),__filename="/../node_modules/with/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js";/** vim: et:ts=4:sw=4:sts=4
+},{"amdefine":56}],56:[function(_dereq_,module,exports){
+(function (process,__filename){
+/** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 0.1.0 Copyright (c) 2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/amdefine for details
@@ -14669,7 +14942,7 @@ function amdefine(module, requireFn) {
     var defineCache = {},
         loaderCache = {},
         alreadyCalled = false,
-        path = require('path'),
+        path = _dereq_('path'),
         makeRequire, stringRequire;
 
     /**
@@ -14944,9 +15217,10 @@ function amdefine(module, requireFn) {
 
 module.exports = amdefine;
 
-},{"__browserify_process":29,"path":30}],57:[function(require,module,exports){
-var sys = require("util");
-var MOZ_SourceMap = require("source-map");
+}).call(this,_dereq_("/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../node_modules/with/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js")
+},{"/Users/jmcclure/Projects/jade/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":29,"path":30}],57:[function(_dereq_,module,exports){
+var sys = _dereq_("util");
+var MOZ_SourceMap = _dereq_("source-map");
 var UglifyJS = exports;
 /***********************************************************************
 
@@ -16814,7 +17088,7 @@ var PRECEDENCE = (function(a, ret){
     {}
 );
 
-var STATEMENTS_WITH_LABELS = array_to_hash([ "for", "do", "while", "switch" ]);
+var STATEMENTS_WITH_LABELS = array_to_hash([ "fo" + "r", "do", "while", "switch" ]);
 
 var ATOMIC_START_TOKEN = array_to_hash([ "atom", "num", "string", "regexp", "name" ]);
 
@@ -16989,7 +17263,7 @@ function parse($TEXT, options) {
                     body      : in_loop(statement)
                 });
 
-              case "for":
+              case "fo" + "r":
                 return for_();
 
               case "function":
@@ -18285,7 +18559,7 @@ AST_Toplevel.DEFMETHOD("compute_char_frequency", function(options){
         else if (node instanceof AST_Lambda)
             base54.consider("function");
         else if (node instanceof AST_For)
-            base54.consider("for");
+            base54.consider("fo" + "r");
         else if (node instanceof AST_ForIn)
             base54.consider("for in");
         else if (node instanceof AST_Switch)
@@ -19081,7 +19355,7 @@ function OutputStream(options) {
         self._do_print_body(output);
     });
     DEFPRINT(AST_For, function(self, output){
-        output.print("for");
+        output.print("fo" + "r");
         output.space();
         output.with_parens(function(){
             if (self.init) {
@@ -19110,7 +19384,7 @@ function OutputStream(options) {
         self._do_print_body(output);
     });
     DEFPRINT(AST_ForIn, function(self, output){
-        output.print("for");
+        output.print("fo" + "r");
         output.space();
         output.with_parens(function(){
             self.init.print(output);
@@ -22354,7 +22628,7 @@ exports.describe_ast = function () {
     doitem(UglifyJS.AST_Node);
     return out + "";
 };
-},{"source-map":47,"util":32}],58:[function(require,module,exports){
+},{"source-map":47,"util":32}],58:[function(_dereq_,module,exports){
 // jshint -W001
 
 "use strict";
